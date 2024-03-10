@@ -8,11 +8,6 @@ Please First Create Cred. then you can Sign In.
 Login Page is client component, Dashboad Page is Server Component.
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
