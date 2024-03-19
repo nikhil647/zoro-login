@@ -9,12 +9,6 @@ export const isEmailAndPasswordMatching = async (
   password: string
 ): Promise<userType> => {
 
-  // const user = new UserModel({
-  //   email: 'patric.maveric@mail.com',
-  //   password: 'Nikhil@123'
-  // });
-  // await user.save();
-
   const [error, user]: any = await to(
     UserModel.find({ email }).select("password _id email")
   );

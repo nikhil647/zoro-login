@@ -39,4 +39,6 @@ schema.pre("save", async function (next) {
   }
 });
 
+// export default mongoose.model("User", schema)
+
 module.exports = mongoose.models.User || mongoose.model("User", schema);

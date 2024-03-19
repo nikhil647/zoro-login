@@ -5,6 +5,7 @@ import { createUserSignInValidationSchema } from "@/db/validators/user.joi.valid
 import { connectDB } from "@/db/init";
 import to from "await-to-js";
 const UserModel = require("@/db/schema/user.schema");
+//import UserModel from '@/db/schema/user.schema';
 
 type CombineRequest = Request & NextApiRequest;
 
@@ -13,7 +14,7 @@ export async function POST(req: CombineRequest) {
 
   //ts-ignore
   const { email, password } = await req.json();
-  const { error } = await createUserSignInValidationSchema.validate({
+  const { error } = createUserSignInValidationSchema.validate({
     email,
     password,
   });
@@ -30,7 +31,7 @@ export async function POST(req: CombineRequest) {
     );
   }
 
-  const [errordb, userDb] = await to(new UserModel({ email: email, password: password }).save());
+  const [errordb, userDb] = await to(new UserModel({ email, password }).save());
 
   if(errordb) {
     console.log('error -->', errordb)

@@ -16,7 +16,7 @@ export async function POST(req: CombineRequest) {
 
   //ts-ignore
   const { email, password } = await req.json();
-  const { value, error } = await createUserSignInValidationSchema.validate({
+  const { value, error } = createUserSignInValidationSchema.validate({
     email,
     password,
   });
